@@ -19,7 +19,15 @@ def set_token_type(lex) :
     if (lex==')'): return 'CLOSEDBRACKET'
     if (lex.isalpha()): return 'IDENTIFIER'
     if (lex.isalnum()): return 'NUMBER'
-tinyinput='(a=a/10A;)'
+tinyinput='''read x; 
+if 0 < x then 
+fact := 1;
+repeat
+fact := fact * x;
+x := x - 1
+until x = 0;
+write fact 
+end'''
 tokens=compile(r'[a-z]+|[A-Z]+|\d+|\+|=|;|:=|\(|\)|<|\*|/|-')
 lexeme=findall(tokens,tinyinput)
 output_token=[]
