@@ -1,4 +1,5 @@
 from re import *
+
 def set_token_type(lex) :
     if (lex==';'): return 'SEMICOLON '
     if (lex=='if'): return 'IF'
@@ -19,18 +20,23 @@ def set_token_type(lex) :
     if (lex==')'): return 'CLOSEDBRACKET'
     if (lex.isalpha()): return 'IDENTIFIER'
     if (lex.isalnum()): return 'NUMBER'
-#gg
-tinyinput='''read x; 
+commentsregex=compile(r'{(.*?)}',DOTALL)
+file='''read x; { read then + - :=}
 if 0 < x then 
 fact := 1;
+hhFGFGfsge=1;
+{mkkgg
+ghgh}
 repeat
 fact := fact * x;
 x := x - 1
 until x = 0;
 write fact 
 end'''
-tokens=compile(r'[a-z]+|[A-Z]+|\d+|\+|=|;|:=|\(|\)|<|\*|/|-')
+tinyinput=commentsregex.sub('',file)
+tokens=compile(r'[a-z]+|\d+|\+|=|;|:=|\(|\)|<|\*|/|-',IGNORECASE)
 lexeme=findall(tokens,tinyinput)
+print (lexeme)
 output_token=[]
 for i in lexeme:
     output_token.append([i,set_token_type(i)])
