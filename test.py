@@ -19,6 +19,7 @@ def set_token_type(lex) :
     if (lex==')'): return 'CLOSEDBRACKET'
     if (lex.isalpha()): return 'IDENTIFIER'
     if (lex.isalnum()): return 'NUMBER'
+#gg
 tinyinput='''read x; 
 if 0 < x then 
 fact := 1;
