@@ -28,7 +28,7 @@ class scanner :
         tinyinput=commentsregex.sub('',self.file)
         tokens=compile(r'[a-z]+|\d+|\+|=|;|:=|\(|\)|<|\*|/|-',IGNORECASE)
         lexeme=findall(tokens,tinyinput)
-        for i in lexeme:  self.tokens += i + ','+ self.set_token_type(i) +"\n"
+        for i in lexeme:  self.tokens += i + ',' + self.set_token_type(i) +"\n"
     def outTokens(self):
         return (self.tokens)
 
