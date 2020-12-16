@@ -1,7 +1,7 @@
 from tkinter import *
 from  Frame2 import  frame2
 root=Tk()
-root.title("Xml Editor")
+root.title("Scanner")
 f=Frame(root)
 f.pack()
 i=frame2(f)

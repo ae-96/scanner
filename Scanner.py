@@ -2,8 +2,10 @@ from re import *
 class scanner :
     def __init__(self,string):
         self.file=string
+        self.output_token = []
+        self.tokens=""
 
-    def set_token_type(lex) :
+    def set_token_type(self,lex) :
         if (lex==';'): return 'SEMICOLON '
         if (lex=='if'): return 'IF'
         if (lex=='then'): return 'THEN '
@@ -28,10 +30,10 @@ class scanner :
         tinyinput=commentsregex.sub('',self.file)
         tokens=compile(r'[a-z]+|\d+|\+|=|;|:=|\(|\)|<|\*|/|-',IGNORECASE)
         lexeme=findall(tokens,tinyinput)
-        print (lexeme)
-        output_token=[]
         for i in lexeme:
-            output_token.append([i,self.set_token_type(i)])
-        print(output_token)
+            self.output_token.append([i,self.set_token_type(i)])
+            self.tokens += self.set_token_type(i) +"\n"
 
+    def outTokens(self):
+        return (self.tokens)
 
